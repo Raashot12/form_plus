@@ -71,7 +71,7 @@ function App() {
     setNewSearch(e.target.value)
   }
 
-  const st = localStorage.getItem("sort") || ""
+  // const st = localStorage.getItem("sort") || ""
 
   const filtered = !search
     ? posts
@@ -82,13 +82,10 @@ function App() {
           name: string
           category: [string]
         }) => {
-          return (
-            value.description.toLowerCase().includes(search.toLowerCase()) ||
-            value.category[0].toLowerCase().includes(st.toLowerCase())
-          )
+          return value.description.toLowerCase().includes(search.toLowerCase())
         }
       )
-  console.log(!search)
+
   return (
     <main className="MuiContainer-maxWidthLg MuiContainer-root">
       <Header searchterm={search} handleSearchChange={handleSearchChange} />
